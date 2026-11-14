@@ -1,0 +1,23 @@
+# build output
+/dist/
+*.exe
+*.syso
+*.test
+*.out
+
+# personal data: recordings contain the servers of your internet provider
+/data/recordings/
+
+# local notes and tools
+/.local/
+.env
+*.log
+*.tmp
+
+# editors and os
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
