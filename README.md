@@ -1,8 +1,6 @@
 # CoD Server Picker
 
 [![release](https://img.shields.io/github/v/release/1ukah/cod-server-picker)](https://github.com/1ukah/cod-server-picker/releases/latest)
-[![downloads](https://img.shields.io/github/downloads/1ukah/cod-server-picker/total)](https://github.com/1ukah/cod-server-picker/releases)
-[![ci](https://img.shields.io/github/actions/workflow/status/1ukah/cod-server-picker/ci.yml?branch=master&label=ci)](https://github.com/1ukah/cod-server-picker/actions/workflows/ci.yml)
 [![license](https://img.shields.io/github/license/1ukah/cod-server-picker)](LICENSE)
 
 CoD Server Picker is a free Windows app. It lets you select the server locations where Call of Duty finds matches for you.
@@ -33,13 +31,7 @@ The app works with all games that start from the Call of Duty HQ launcher (`cod.
 
 Call of Duty does not let you select a server region. The game selects a region for you. It uses your location and your ping to data centers.
 
-Sometimes you want to play in a different region. For example:
-
-- The players in your region play in a way that you do not like.
-- Your friends play in a different region.
-- The game puts you in a region with high ping.
-
-CoD Server Picker blocks the server locations that you do not want. The game then finds matches only in the locations that you allow.
+If you want to play in a different region, CoD Server Picker blocks the server locations that you do not want. The game then finds matches only in the locations that you allow.
 
 ## How it works
 
@@ -49,8 +41,6 @@ CoD Server Picker blocks the server locations that you do not want. The game the
 4. The game cannot reach the blocked locations. The game then selects a location that you allow.
 
 The rules block only outbound UDP traffic from `cod.exe` to the selected IP ranges. Other programs, login, store and downloads are not blocked.
-
-The app does not change game files. The app does not open, read, change or attach to the game process.
 
 ## Requirements
 
