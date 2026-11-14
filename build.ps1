@@ -26,12 +26,14 @@ if (Test-Path cmd\CoDServerPicker) {
     if (-not (Get-Command gcc -ErrorAction SilentlyContinue)) { throw "gcc is not installed. Install MinGW-w64 and add its bin folder to PATH." }
     $env:CGO_ENABLED = "1"
 
-    # The Windows resource adds the icon, the version and the administrator manifest to the exe.
-    Invoke-Step "make windows resource" {
-        go run github.com/tc-hib/go-winres@v0.3.3 make --in winres\winres.json --out cmd\CoDServerPicker\rsrc --product-version $Version --file-version $Version
-    }
-
+    Remove-Item cmd\CoDServerPicker\*.syso -ErrorAction SilentlyContinue
     Invoke-Step "build CoDServerPicker" { go build -trimpath -ldflags "$ldflags -H windowsgui" -o dist\CoDServerPicker.exe .\cmd\CoDServerPicker }
+
+    # MinGW links its own default manifest (no administrator rights) into the exe.
+    # This step deletes all resources and adds the icon, the version and the administrator manifest.
+    Invoke-Step "add windows resources" {
+        go run github.com/tc-hib/go-winres@v0.3.3 patch --in winres\winres.json --delete --no-backup --product-version $Version --file-version $Version dist\CoDServerPicker.exe
+    }
 }
 
 Write-Host "== done: version $Version"
