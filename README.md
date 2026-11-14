@@ -3,7 +3,7 @@
 [![release](https://img.shields.io/github/v/release/1ukah/cod-server-picker)](https://github.com/1ukah/cod-server-picker/releases/latest)
 [![license](https://img.shields.io/github/license/1ukah/cod-server-picker)](LICENSE)
 
-CoD Server Picker is a free Windows app. It lets you select the server locations where Call of Duty finds matches for you.
+CoD Server Picker is a free and open-source Windows app. It lets you select the server locations where Call of Duty finds matches for you.
 
 The app works with all games that start from the Call of Duty HQ launcher (`cod.exe`).
 
