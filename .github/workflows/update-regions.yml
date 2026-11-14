@@ -1,0 +1,59 @@
+# makes internal/regions/regions.json again from the official ip lists of
+# google cloud, microsoft azure and vultr. commits only if the ranges changed.
+# opens an issue if the generator shows warnings.
+name: update regions
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-regions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: generate
+        run: go run ./cmd/gen-regions | tee gen.log
+
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add internal/regions/regions.json
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            git commit -m ":card_file_box: update regions"
+            git push
+          fi
+
+      - name: report warnings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "^warning:" gen.log; then
+            {
+              echo "The weekly regions update shows warnings. Examine data/catalog.json."
+              echo
+              echo '```'
+              grep "^warning:" gen.log
+              echo '```'
+            } > issue.md
+            gh issue create --title "regions update: warnings" --body-file issue.md
+          fi

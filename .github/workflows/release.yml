@@ -1,0 +1,81 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: check tag, version and changelog
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          if ! echo "$version" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error file=VERSION::version must use the form X.Y.Z"
+            exit 1
+          fi
+          if [ "$TAG" != "v$version" ]; then
+            echo "::error::tag $TAG does not match VERSION $version"
+            exit 1
+          fi
+          awk -v v="$version" 'index($0, "## [" v "]") == 1 { f = 1; next } /^## \[/ { f = 0 } f' CHANGELOG.md > notes.md
+          if ! grep -q '[^[:space:]]' notes.md; then
+            echo "::error file=CHANGELOG.md::no notes for version $version"
+            exit 1
+          fi
+
+  release:
+    needs: version
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: test
+        run: go test ./...
+
+      - name: build
+        run: ./build.ps1
+
+      - name: checksums
+        shell: bash
+        working-directory: dist
+        run: sha256sum *.exe > SHA256SUMS.txt
+
+      - name: release notes
+        shell: bash
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          awk -v v="$version" 'index($0, "## [" v "]") == 1 { f = 1; next } /^## \[/ { f = 0 } f' CHANGELOG.md > notes.md
+
+      - name: publish
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" dist/*.exe dist/SHA256SUMS.txt \
+            --verify-tag \
+            --title "CoD Server Picker $TAG" \
+            --notes-file notes.md
