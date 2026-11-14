@@ -1,0 +1,115 @@
+{
+  "regions": [
+    {
+      "id": "us-east",
+      "name": "US East",
+      "locations": [
+        { "id": "us-virginia", "name": "Virginia", "country": "US", "beacons": ["20.231.84.203", "20.242.50.104", "35.212.39.56"] },
+        { "id": "us-new-jersey", "name": "New Jersey", "country": "US", "beacons": ["149.28.63.111"] },
+        { "id": "us-ohio", "name": "Ohio", "country": "US", "beacons": ["34.186.239.176"] },
+        { "id": "us-atlanta", "name": "Atlanta", "country": "US", "beacons": ["108.61.215.192"] },
+        { "id": "us-miami", "name": "Miami", "country": "US", "beacons": ["144.202.34.228"] }
+      ]
+    },
+    {
+      "id": "us-central",
+      "name": "US Central",
+      "locations": [
+        { "id": "us-chicago", "name": "Chicago", "country": "US", "beacons": ["130.131.56.135", "45.63.70.19"] },
+        { "id": "us-iowa", "name": "Iowa", "country": "US", "beacons": ["35.206.100.67"] },
+        { "id": "us-st-louis", "name": "St. Louis", "country": "US", "beacons": ["66.245.208.206"] },
+        { "id": "us-dallas", "name": "Dallas", "country": "US", "beacons": ["45.76.59.222"] }
+      ]
+    },
+    {
+      "id": "us-west",
+      "name": "US West",
+      "locations": [
+        { "id": "us-seattle", "name": "Washington State", "country": "US", "beacons": ["20.69.97.173", "144.202.95.63"] },
+        { "id": "us-bay-area", "name": "San Francisco Bay Area", "country": "US", "beacons": ["20.253.241.140", "45.77.189.106"] },
+        { "id": "us-los-angeles", "name": "Los Angeles", "country": "US", "beacons": ["35.215.93.79", "149.28.69.15"] },
+        { "id": "us-phoenix", "name": "Phoenix", "country": "US", "beacons": ["20.25.160.143"] },
+        { "id": "us-salt-lake-city", "name": "Salt Lake City", "country": "US", "beacons": ["35.217.85.144"] },
+        { "id": "us-wyoming", "name": "Wyoming", "country": "US", "beacons": ["172.132.65.160"] }
+      ]
+    },
+    {
+      "id": "south-america",
+      "name": "South America",
+      "locations": [
+        { "id": "br-sao-paulo", "name": "Sao Paulo", "country": "BR", "beacons": ["216.238.119.76", "34.95.155.197", "35.198.59.244", "20.226.5.255"] },
+        { "id": "cl-santiago", "name": "Santiago", "country": "CL", "beacons": ["34.176.173.157", "64.176.16.214"] }
+      ]
+    },
+    {
+      "id": "eu-west",
+      "name": "Europe West",
+      "locations": [
+        { "id": "gb-london", "name": "London", "country": "GB", "beacons": ["20.58.62.203", "35.214.92.190", "192.248.157.110"] },
+        { "id": "fr-paris", "name": "Paris", "country": "FR", "beacons": ["40.89.133.195", "45.77.60.55"] },
+        { "id": "be-belgium", "name": "Belgium", "country": "BE", "beacons": ["35.210.179.42"] },
+        { "id": "nl-amsterdam", "name": "Amsterdam", "country": "NL", "beacons": ["209.250.240.120"] },
+        { "id": "es-madrid", "name": "Madrid", "country": "ES", "beacons": ["158.158.32.163", "208.85.18.8"] }
+      ]
+    },
+    {
+      "id": "eu-central",
+      "name": "Europe Central",
+      "locations": [
+        { "id": "de-frankfurt", "name": "Frankfurt", "country": "DE", "beacons": ["20.113.175.154", "35.207.127.139", "95.179.168.190"] },
+        { "id": "ch-zurich", "name": "Zurich", "country": "CH", "beacons": ["35.216.209.249"] },
+        { "id": "it-milan", "name": "Milan", "country": "IT", "beacons": ["4.232.184.10", "66.245.206.51"] },
+        { "id": "pl-warsaw", "name": "Warsaw", "country": "PL", "beacons": ["64.176.69.111", "74.248.136.16"] }
+      ]
+    },
+    {
+      "id": "eu-north",
+      "name": "Europe North",
+      "locations": [
+        { "id": "fi-finland", "name": "Finland", "country": "FI", "beacons": ["35.217.1.41"] },
+        { "id": "se-sweden", "name": "Sweden", "country": "SE", "beacons": ["4.223.165.236"] }
+      ]
+    },
+    {
+      "id": "middle-east",
+      "name": "Middle East",
+      "locations": [
+        { "id": "qa-doha", "name": "Doha", "country": "QA", "beacons": ["34.18.16.177"] },
+        { "id": "sa-dammam", "name": "Dammam", "country": "SA", "beacons": ["8.228.216.193"] }
+      ]
+    },
+    {
+      "id": "africa",
+      "name": "Africa",
+      "locations": [
+        { "id": "za-johannesburg", "name": "Johannesburg", "country": "ZA", "beacons": ["4.168.235.186", "139.84.237.150"] }
+      ]
+    },
+    {
+      "id": "asia",
+      "name": "Asia",
+      "locations": [
+        { "id": "jp-tokyo", "name": "Tokyo", "country": "JP", "beacons": ["35.213.9.72", "40.115.138.156", "207.148.106.209"] },
+        { "id": "kr-seoul", "name": "Seoul", "country": "KR", "beacons": ["20.194.28.20", "158.247.216.208"] },
+        { "id": "hk-hong-kong", "name": "Hong Kong", "country": "HK", "beacons": ["20.24.65.164", "35.215.153.254"] },
+        { "id": "sg-singapore", "name": "Singapore", "country": "SG", "beacons": ["4.193.201.36", "34.143.130.157", "139.180.152.218"] }
+      ]
+    },
+    {
+      "id": "oceania",
+      "name": "Oceania",
+      "locations": [
+        { "id": "au-sydney", "name": "Sydney", "country": "AU", "beacons": ["35.213.209.143", "104.156.232.245"] }
+      ]
+    }
+  ],
+  "presets": [
+    { "id": "north-america", "name": "North America only", "allow": ["us-east", "us-central", "us-west"] },
+    { "id": "south-america", "name": "South America only", "allow": ["south-america"] },
+    { "id": "europe", "name": "Europe only", "allow": ["eu-west", "eu-central", "eu-north"] },
+    { "id": "middle-east", "name": "Middle East only", "allow": ["middle-east"] },
+    { "id": "africa", "name": "Africa only", "allow": ["africa"] },
+    { "id": "asia", "name": "Asia only", "allow": ["asia"] },
+    { "id": "oceania", "name": "Oceania only", "allow": ["oceania"] }
+  ]
+}
