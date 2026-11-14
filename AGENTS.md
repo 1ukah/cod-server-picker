@@ -10,7 +10,13 @@ These rules apply to all work in this repository.
   - Use one instruction in each sentence.
   - Use simple, approved words: "start" (not "launch"), "select" (not "choose"), "necessary" (not "required"), "do not" (not "don't"). Do not use contractions or idioms.
   - Use the same term for the same thing each time: "location", "region", "block", "allow", "game".
-- The Portuguese and Spanish translations must be equally short and clear.
+- Translations (Portuguese is Brazilian Portuguese):
+  - Make sure that each text sounds natural to a native speaker.
+  - Use common, everyday words. Do not use rare or formal words that people do not use in daily life.
+  - Keep each text as short and clear as the English text.
+- English technical terms are permitted in all languages and documents, for example "ping", "firewall", "app", "presets", "IP".
+- Put statements about bans, anti-cheat or game files only in the FAQ answer about bans in README.md. Do not put them in the user interface or in other documents.
+- Do not name or compare with other tools, paid services or closed-source products.
 - Never use emojis anywhere: code, comments, documents, user interface, commits, issues or release notes. Badges in README.md are permitted. Gitmoji shortcodes (text such as `:sparkles:`) in commit messages are permitted.
 
 ## Commits
@@ -19,7 +25,8 @@ These rules apply to all work in this repository.
 - Write the message in lowercase, short and direct, on one line. Do not add a body.
   - Good: `:sparkles: add ping test`
   - Bad: `:sparkles: Added a new ping test feature that measures the latency to all locations.`
-- Author and committer: `1ukah <52342023+1ukah@users.noreply.github.com>`. Never use a personal email address.
+- Use the GitHub noreply email address of the author for commits. Never use a personal email address.
+- Never write personal data (names, email addresses, IP addresses, internet providers) in files of this repository.
 - Do not commit personal data. `data/recordings/` is in `.gitignore` because recordings contain the servers of the internet provider of the user.
 
 ## Versions and releases
@@ -46,3 +53,4 @@ These rules apply to all work in this repository.
 - Run `gofmt`, `go vet ./...` and `go test ./...` before each commit.
 - Build with `./build.ps1`. It writes the programs to `dist/`.
 - The user interface uses Fyne. Keep it simple: most users are beginners.
+- Pull requests use the template in `.github/pull_request_template.md`.

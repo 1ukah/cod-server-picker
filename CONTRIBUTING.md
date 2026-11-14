@@ -55,6 +55,7 @@ Do not add IPs of these services to the catalog. The game needs them:
 
 ## Rules for code
 
-- The app must never open a handle to the game process. It must never read, write, inject into or attach to the game process. Ricochet anti-cheat watches for these actions. Use the functions in `internal/game` to find `cod.exe`.
+- The app must never open a handle to the game process. It must never read, write, inject into or attach to the game process. Use the functions in `internal/game` to find `cod.exe`.
+- Fill in the pull request template. It opens automatically when you make a pull request.
 - Run `gofmt`, `go vet ./...` and `go test ./...` before you open a pull request.
 - Keep the user interface simple. Most users are beginners.
