@@ -1,7 +1,6 @@
 {
   "about.description": "This app blocks Call of Duty server locations with Windows Firewall rules.",
   "about.license": "License: GPL-3.0",
-  "about.note": "This app does not change game files. It only adds Windows Firewall rules.",
   "about.releases": "Releases",
   "about.repo": "Repository",
   "about.title": "About",

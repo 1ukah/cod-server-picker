@@ -168,7 +168,6 @@ func (a *App) about() fyne.CanvasObject {
 		boldLabel(a.t("about.title")),
 		widget.NewLabel(appName+" - "+a.t("about.version", a.version)),
 		wrapLabel(a.t("about.description")),
-		wrapLabel(a.t("about.note")),
 		widget.NewLabel(a.t("about.license")),
 		container.NewHBox(
 			hyperlink(a.t("about.repo"), repoURL),
