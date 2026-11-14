@@ -46,7 +46,6 @@ The rules block only outbound UDP traffic from `cod.exe` to the selected IP rang
 
 - Windows 10 or Windows 11 (64-bit).
 - Administrator rights. Windows Firewall rules need administrator rights.
-- An internet connection for the ping test and for server list updates. The app also works offline with its built-in server list.
 
 ## Download and start
 
@@ -171,21 +170,22 @@ Use this function if the game finds matches in a location that the app does not 
 
 The recording file contains the servers of your internet provider. Remove these lines before you share the file if you do not want to show them.
 
-The recorder uses the connection log of Windows. It does not touch the game process. When you stop the recorder, the app sets the Windows log setting back to its previous value. If the app stops during a recording, use **Reset audit policy** in the settings.
+The recorder uses the connection log of Windows. When you stop the recorder, the app sets the Windows log setting back to its previous value. If the app stops during a recording, use **Reset audit policy** in the settings.
 
 ## FAQ
 
 ### Can I get banned for this app?
 
-The risk is very low, but we cannot give a guarantee. The app does not change game files. The app does not open, read, change or attach to the game process. Ricochet anti-cheat looks for these actions. The app only adds standard Windows Firewall rules, and only Windows uses them.
-
-Paid network tools, for example ExitLag, sell a similar "region lock" function. Activision can change its rules at any time. Use the app at your own risk.
-
-Download the app only from the [Releases](https://github.com/1ukah/cod-server-picker/releases) page of this project. Each release has a `SHA256SUMS.txt` file. Use it to make sure that your download is correct. Copies from other websites can contain malware.
+- No. The app does not touch the game.
+- The app does not change game files. It does not open, read, change or attach to the game process.
+- The app only uses features of Windows: Windows Firewall rules and the Windows connection log.
+- Download the app only from the [Releases](https://github.com/1ukah/cod-server-picker/releases) page of this project. Copies from other websites can contain malware.
+- Each release has a `SHA256SUMS.txt` file. Use it to make sure that your download is correct.
 
 ### Why does the app need administrator rights?
 
-Windows lets only administrators add or remove firewall rules. Without administrator rights, the app cannot block locations.
+- Windows lets only administrators add or remove firewall rules.
+- Without administrator rights, the app cannot block locations.
 
 ### Why is my ping high? Why does the game not use the location with the lowest ping?
 
@@ -195,41 +195,48 @@ Windows lets only administrators add or remove firewall rules. Without administr
 
 ### The game still finds matches in a blocked location. What can I do?
 
-1. Make sure that you selected **Apply**.
-2. Close the game fully and start it again.
-3. Turn off your VPN. Some VPNs send the game traffic around the Windows Firewall.
-4. Some antivirus programs replace the Windows Firewall. Let Windows Defender Firewall control the firewall.
-5. Make sure that the game path in the settings is correct.
-6. Use **Record servers** to find unknown locations, and send us the file.
+- Make sure that you selected **Apply**.
+- Close the game fully and start it again.
+- Turn off your VPN. Some VPNs send the game traffic around the Windows Firewall.
+- Some antivirus programs replace the Windows Firewall. Let Windows Defender Firewall control the firewall.
+- Make sure that the game path in the settings is correct.
+- Use **Record servers** to find unknown locations, and send us the file.
 
 ### The game shows timeouts or does not find a match
 
-You possibly blocked too many locations. Allow more locations, or select a preset. If you block all locations, the game cannot find a match.
+- You possibly blocked too many locations.
+- Allow more locations, or select a preset.
+- If you block all locations, the game cannot find a match.
 
 ### Windows SmartScreen shows a warning. Is the app safe?
 
-SmartScreen shows this warning for apps without a paid code-signing certificate. To start the app, select **More info** and then **Run anyway**.
-
-The source code is public. You can read it, and you can build the app yourself (see [Build from the source code](#build-from-the-source-code)).
+- SmartScreen shows this warning for apps without a code-signing certificate.
+- To start the app, select **More info** and then **Run anyway**.
+- The source code is public. You can read it, and you can build the app yourself (see [Build from the source code](#build-from-the-source-code)).
 
 ### Does the app work for Warzone and other Call of Duty games?
 
-The app blocks servers for `cod.exe`. All games that start from the Call of Duty HQ launcher use `cod.exe`. The blocks apply to all of them. We tested only Modern Warfare 4.
+- The app blocks servers for `cod.exe`.
+- All games that start from the Call of Duty HQ launcher use `cod.exe`. The blocks apply to all of them.
+- We tested only Modern Warfare 4.
 
 ### How do I remove the blocks if I deleted the app?
 
-1. Press **Windows + R**, type `wf.msc` and press **Enter**.
-2. Select **Outbound Rules**.
-3. Sort by **Group**.
-4. Delete all rules in the group **CoDServerPicker**.
+- Press **Windows + R**, type `wf.msc` and press **Enter**.
+- Select **Outbound Rules**.
+- Sort by **Group**.
+- Delete all rules in the group **CoDServerPicker**.
 
 ### Does the app send my data anywhere?
 
-No. The app downloads the server list and the latest version number from this project on GitHub. The ping test sends small test packets to the server locations and to gcping.com. The app does not send personal data.
+- No. The app does not send personal data.
+- The app downloads the server list and the latest version number from this project on GitHub.
+- The ping test sends small test packets to the server locations and to gcping.com.
 
 ### Why only Windows?
 
-Call of Duty on PC runs only on Windows. The app uses Windows Firewall.
+- Call of Duty on PC runs only on Windows.
+- The app uses Windows Firewall.
 
 ## Build from the source code
 
